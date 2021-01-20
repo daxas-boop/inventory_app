@@ -1,0 +1,83 @@
+<div class="container">
+  <form class="my-6" method="POST" action="" enctype="multipart/form-data">
+    <div class="field">
+      <label class="label">Name</label>
+      <div class="control">
+        <input class="input" type="text" name='name' placeholder="e.g RockJam 61 Key Keyboard Piano" value="{{encodeMyString item.name}}" required>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Description</label>
+      <div class="control">
+        <input class="input" type="text" name='description' placeholder="Description" value="{{encodeMyString item.description}}" required>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Price</label>
+      <div class="control">
+        <input class="input" type="number" name='price' placeholder="Price" value="{{item.price}}" required>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Number of stock</label>
+      <div class="control">
+        <input class="input" type="number" name='number_stock' value="{{item.number_stock}}" required>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Category</label>
+      <div class="control">
+        <div class="select">
+          <select name="category">
+            {{#each categories}}
+              <option value="{{this._id}}" {{#ifCond ../item.category this._id }} selected {{/ifCond}}>
+                {{this.name}}
+              </option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Image</label>
+      <div class="control">
+        {{#if item}}
+          <figure class="image is-128x128 my-2">
+            <img class="image is-128x128" src="/{{item.image}}">
+          </figure>
+          <input class="input" type="file" name='image' value="{{item.image}}">
+        {{else}}
+          <input class="input" type="file" name='image' required>
+        {{/if}}
+      </div>
+    </div>
+
+    {{#if item}}
+      <div class="field ">
+        <label class="label">Admin password</label>
+        <div class="control has-icons-left">
+          <input class="input" type="password" name='password' required>
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+        </div>
+      </div>
+    {{/if}}
+
+    <div class="buttons mt-5">
+      <button class="button is-info">Submit</button>
+      <a href="/items" class="button">Go back</a>
+    </div>
+  </form>
+
+  <div class="my-3">
+    {{#each errors}}
+      <p class="subtitle has-text-danger">Error: {{this.msg}}</p>
+    {{/each}}
+  </div>
+</div>

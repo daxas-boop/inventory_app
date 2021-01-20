@@ -1,0 +1,40 @@
+<div class="container my-6">
+  <h1 class="title has-text-centered">{{encodeMyString item.name}}</h1>
+  <div class="is-flex is-justify-content-center">
+    <figure class="image is-128x128 mb-5">
+      <img class="image is-128x128" src="/{{item.image}}">
+    </figure>
+  </div>
+
+  <table class="table is-fullwidth is-size-4 my-5">
+    <tbody>
+      <tr>
+        <th>Name</th>
+        <td>{{encodeMyString item.name}}</td>
+      </tr>
+      <tr>
+        <th>Description</th>
+        <td>
+          {{encodeMyString item.description }}
+        </td>
+      </tr>
+      <tr>
+        <th>Price</th>
+        <td>
+          {{item.price}}$
+        </td>
+      </tr>
+      <tr>
+        <th>Number Stock</th>
+        <td>
+          {{item.number_stock}} in stock.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="buttons my-6">
+    <a class="button  is-size-5 is-primary" href="/item/{{item._id}}/update">Update</a>
+    <a class="button  is-size-5 is-danger" href="/item/{{item._id}}/delete">Delete</a>
+  </div>
+</div>

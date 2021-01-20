@@ -1,0 +1,41 @@
+<div class="container my-5">
+  <h1 class="title has-text-centered">{{encodeMyString category.name}}</h1>
+  <p class="subtitle has-text-centered">{{encodeMyString category.description}}</p>
+  <div class="is-flex is-justify-content-center">
+    <figure class="image is-128x128">
+      <img src="/{{category.image}}" alt="Placeholder image">
+    </figure>
+  </div>
+  
+  {{#if items}}
+    <div class="columns my-5">
+      {{#each items}}
+        <div class="column is-one-third">
+          <a href="{{this.url}}">
+            <div class="card">
+               <header class="card-header is-flex is-justify-content-center">
+                <div class="card-image has-text-centered my-2">
+                  <figure class="image is-128x128">
+                    <img class="image is-128x128" src="/{{this.image}}" alt="Placeholder image">
+                  </figure>
+                </div>
+              </header>
+              <div class="card-content">
+                <strong class="title is-4 has-text-centered">{{encodeMyString this.name}}</strong>
+                <hr>
+                <div class="content">
+                  {{encodeMyString this.description}}.
+                  <br>
+                  <hr>
+                  <p class="subtitle">Price: {{this.price}}$</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      {{/each}}
+    </div>
+  {{else}}
+    <p class="subtitle my-5">Items not found in this category.</p>
+  {{/if}}
+</div>

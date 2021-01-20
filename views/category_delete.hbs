@@ -1,0 +1,39 @@
+<div class="container my-5">
+  <h1 class="title has-text-centered">Delete the Category: {{encodeMyString category.name}}</h1>
+
+  {{#if items}}
+
+    <p class="subtitle mt-6">Before deleting this category you need to delete the following items:</p>
+    {{#each items}}
+      <div class="content">
+        <ul>
+          <li><a href="{{this.url}}">{{encodeMyString this.name}}</a></li>
+        </ul>
+      </div>
+    {{/each}}
+
+  {{else}}
+
+  <p class="subtitle my-4">Are you sure you want to delete this category?</p>
+    
+  <form action="" method="POST">
+    <input type="hidden" name="categoryid" value="{{category._id}}" required>
+
+    <div class="field ">
+      <label class="label">Admin password</label>
+      <div class="control has-icons-left">
+        <input class="input" type="password" name='password' required>
+        <span class="icon is-small is-left">
+          <i class="fas fa-lock"></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="buttons my-4">
+      <button class="button is-danger">Delete</button>
+      <a class="button" href="/categories">Go back</a>
+    </div>
+  </form>
+
+  {{/if}}
+</div>

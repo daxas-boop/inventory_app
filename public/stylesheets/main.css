@@ -1,0 +1,11 @@
+.card {
+  height: 100%;
+  min-height: 468px;
+}
+body,
+html {
+  background-color: #ffffff;
+}
+.container {
+  min-height: 85vh;
+}

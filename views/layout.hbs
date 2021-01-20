@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>Inventory Application</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <link rel="stylesheet" href="/public/stylesheets/main.css">
+  </head>
+  <body>
+
+    <nav class="navbar is-dark is-spaced " role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <img src="/public/images/126-1262360_sor-guitar-icon-50-school-of-rock-guitar.png" alt="your mom" width="30" height="28">
+          <p class="ml-2">Home</p>
+        </a>
+        <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+          <a href='/items' class="navbar-item">
+            All items
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    {{{body}}}
+
+    <footer class="footer has-background-grey-dark">
+      <a id="topBtn">Back to the top</a>
+      <hr class="has-background-grey">
+      <div class="content has-text-centered">
+        <p class="has-text-white">
+          Created by <a href="https://github.com/daxas-boop" target="_blank">daxas-boop</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="/public/javascripts/navbar.js"></script>
+  </body>
+</html>

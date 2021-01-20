@@ -1,0 +1,29 @@
+<div class="container my-5">
+  <a href="/item/create" class="button is-primary">Add an item</a>
+  <div class="columns is-multiline my-5">
+    {{#each items}}
+    <div class="column is-one-third">
+      <a href="{{this.url}}">
+        <div class="card">
+          <header class="card-header is-flex is-justify-content-center">
+            <div class="card-image my-2">
+              <figure class="image is-128x128">
+                <img class="image is-128x128" src="/{{this.image}}" alt="Placeholder image">
+              </figure>
+            </div>
+          </header>
+          <div class="card-content">
+            <strong class="title is-4 has-text-centered">{{encodeMyString this.name}}</strong>
+            <hr>
+            <div class="content">
+              {{encodeMyString this.description}}.
+            </div>
+            <hr>
+            <p class="subtitle">Price: {{this.price}}$</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    {{/each}}
+  </div>
+</div>

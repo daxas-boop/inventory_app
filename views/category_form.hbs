@@ -1,0 +1,54 @@
+<div class="container">
+  <form class="my-6" method="POST" action="" enctype="multipart/form-data">
+    <div class="field">
+      <label class="label">Name</label>
+      <div class="control">
+        <input class="input" type="text" name='name' placeholder="e.g Guitars" value="{{encodeMyString category.name}}" required>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Description</label>
+      <div class="control">
+        <input class="input" type="text" name='description' placeholder="e.g. A category for guitars" value="{{encodeMyString category.description}}" required>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Image</label>
+      <div class="control">
+        {{#if category}}
+          <figure class="image is-128x128">
+            <img class="image is-128x128" src="/{{category.image}}">
+          </figure>
+          <input class="input" type="file" name='image' value="{{category.image}}">
+        {{else}}
+          <input class="input" type="file" name='image' required>
+        {{/if}}
+      </div>
+    </div>
+
+    {{#if category}}
+      <div class="field ">
+        <label class="label">Admin password</label>
+        <div class="control has-icons-left">
+          <input class="input" type="password" name='password' required>
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+        </div>
+      </div>
+    {{/if}}
+
+    <div class="buttons my-6">
+      <button class="button is-info">Submit</button>
+      <a href="/categories" class="button">Go back</a>
+    </div>
+  </form>
+
+  <div class="my-3">
+    {{#each errors}}
+      <p class="subtitle has-text-danger">Error: {{this.msg}}</p>
+    {{/each}}
+  </div>
+</div>
