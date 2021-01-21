@@ -14,8 +14,7 @@ const inventoryRouter = require('./routes/inventory');
 const app = express();
 
 // Set up mongoose connection
-const devDbUrl =
-  'mongodb+srv://daxas:daxasinvenrotyapp@cluster0.gqw43.mongodb.net/inventory_app?retryWrites=true&w=majority';
+const devDbUrl = process.env.DEV_DB_URL;
 const mongoDB = process.env.MONGODB_URI || devDbUrl;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
